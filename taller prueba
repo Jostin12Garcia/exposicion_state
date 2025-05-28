@@ -1,0 +1,92 @@
+class Persona{
+    nombres: string;
+    apellidos: string;
+    cedula: number;
+    estadoCivil: string;
+     
+    constructor(nombre: string, aprellidos: string, cedula: number, estadoCivil: string){
+    this.nombres = nombre
+    this.apellidos = aprellidos
+    this.cedula = cedula
+    this.estadoCivil = estadoCivil
+
+}
+
+cambiarEstadoCivil(nuevoEstadoCivil: string){
+
+}
+imprimirInformacion() :string {
+    return `nombre: ${this.nombres} ${this.apellidos}
+    cedula: ${this.cedula},
+    estadoCivil: ${this.estadoCivil}`;
+}
+}
+
+class Estudiante extends Persona{
+    curso: string;
+    constructor(nombres: string, apellidos: string, cedula: number, estadoCivil: string, curso: string){
+    super(nombres, apellidos, cedula, estadoCivil)
+    this.curso = curso;
+}
+
+
+matricular(curso: string){
+    this.curso = curso;
+
+}
+}
+
+
+class Empleado extends Persona{
+    añoIngreso: number;
+    numeroDespacho: number;
+    constructor(nombre: string, apellido: string, cedula: number, estadoCivil: string, 
+        añoIngreso: number, numeroDespacho: number){
+    super(nombre, apellido, cedula, estadoCivil);
+    this.añoIngreso
+    this.numeroDespacho
+
+}
+reasignarDespacho(nuevoDespacho: number){
+
+}
+}
+
+class Profesor extends Empleado{
+    departamento: string;
+    constructor(nombre: string, apellido: string, cedula: number, estadoCivil: string, 
+        añoIngreso: number, numeroDespacho: number, departamento: string){
+    super(nombre, apellido, cedula, estadoCivil, añoIngreso, numeroDespacho);
+    this.departamento
+}
+cambiarDepartamento(nuevoDepartamento: string){
+    this.departamento = nuevoDepartamento
+}
+}
+
+class PersonalServicio extends Empleado{
+    seccion: string;
+    constructor(nombre: string, apellido: string, cedula: number, estadoCivil: string, 
+        añoIngreso: number, numeroDespacho: number){
+    super(nombre, apellido, cedula, estadoCivil, añoIngreso, numeroDespacho);
+    this.seccion = this.seccion;
+    }
+
+    trasladarSeccion(nuevaSeccion: string){
+
+    }
+}
+
+const persona = new Persona("goku", "vegeta", 1316768348, "soltero");
+console.log( persona.imprimirInformacion());
+
+const estudiante = new Estudiante("gohan", "goten", 1317678435, "soltero", "sexto");
+console.log(estudiante.imprimirInformacion())
+
+const empleado = new Empleado("picoro", "frizzer", 1218798322, "casado", 2005, 15);
+console.log(empleado.imprimirInformacion())
+
+const profesor = new Profesor("cell", "boo" , 1319098876 , "casado", 2001 , 23, "leguaje");
+console.log(profesor.imprimirInformacion())
+
+const personalServicio = new PersonalServicio("pepe", "perro", 1314387821, "casado", 2009, 22)
